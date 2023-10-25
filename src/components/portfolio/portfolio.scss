@@ -1,0 +1,179 @@
+@import "../../app.scss";
+
+.portfolio {
+  position: relative;
+
+  .progress {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    text-align: center;
+    color: orange;
+    font-size: 36px;
+
+    @include mobile {
+      // padding-top: calc(100vh - 100px);
+      padding-top: 90px;
+      font-size: 24px;
+    }
+
+    .progressBar {
+      height: 10px;
+      background-color: white;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .wrapper {
+      max-width: 1366px;
+      margin: auto 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      box-sizing: border-box;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .videoContainer {
+        flex: 1;
+        height: 50%;
+
+        &:hover{
+          filter: drop-shadow(0px 0px 20px  #192b69);
+          cursor: pointer;
+          transition: all 200ms ease-in;
+        }
+
+        video {
+          width: 100%;
+
+          @include mobile{
+            padding: 0 10%;
+            margin-top: 20%;
+          }
+        }
+
+        @include mobile {
+          width: 100%;
+          max-height: 300px;
+        }
+      }
+
+      .textContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include mobile {
+          transform: none !important;
+          padding: 10px;
+          align-items: center;
+          text-align: center;
+        }
+
+        p{
+          @include mobile{
+            padding: 0 8%;
+          }
+        }
+
+        .buttonWrapper {
+          display: flex;
+          width: 100%;
+          gap: 20px;
+
+          @include mobile{
+            padding: 0 10%;
+          }
+
+          button {
+            position: relative;
+            transition: all 0.8s;
+            z-index: 2;
+            overflow: hidden;
+            background: transparent;
+            // background-color: black;
+            color: white;
+            border: 1px solid orange;
+
+            &::before {
+              content: "";
+              width: 100%;
+              background-color: orange;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transform: translateX(-100%);
+              transition: all 0.8s;
+              z-index: -1;
+            }
+            &:hover::before {
+              transform: translateX(0);
+            }
+            &:hover {
+              box-shadow: 1px 1px 200px white;
+              cursor: pointer;
+              color: black;
+              border: none;
+            }
+          }
+        }
+
+        h2 {
+          font-size: 60px;
+          @include mobile {
+            font-size: 30px;
+            border-bottom: 1px solid orange;
+          }
+        }
+
+        p {
+          color: gray;
+          font-size: 20px;
+          @include mobile {
+            font-size: 15px;
+          }
+        }
+
+        p:nth-child(3) {
+          font-size: 15px;
+          color: rgb(255, 216, 144);
+        }
+
+        button {
+          background-color: orange;
+          border: none;
+          border-radius: 10px;
+          padding: 10px;
+          width: 200px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: rgb(255, 193, 78);
+          font-weight: bold;
+          transition: all 0.1s ease-in;
+        }
+
+        button:focus {
+          background-color: orange;
+        }
+      }
+    }
+  }
+}
